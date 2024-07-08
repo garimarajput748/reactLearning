@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { MyContext } from './contextAPi/nameStore';
+import Routers from './Router';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const name = 'mayak';
+    const fname = "stersafs";
+    const [currentTheme, setCurrentTheme] = useState('Dark');
+    return (
+        <MyContext.Provider value={{ name, fname, currentTheme, setCurrentTheme }}>
+            <Routers />
+        </MyContext.Provider>
+    );
+};
 
 export default App;
